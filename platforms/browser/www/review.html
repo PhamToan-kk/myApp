@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" data-role="listview" >
+        <a href="./index.html" data-icon="back" style="font-size: 25px;">Back</a>
+        <h3 id="x1"> Restaurant Review</h3>
+        <div class="item">
+            <p>Restaurant Name</p>
+            <input type="text" placeholder="Restaurant name"  id="rname" data-clear-btn="true"/>
+            <p class="errMeg" id ="errRname" ></p>
+        </div>
+        <div class="item">
+            <p>Restaurant Type</p>
+            <select name="Type Restaurant" id="rtype">
+                <option value="Grill">Grill</option>
+                <option value="FastFood">FastFood</option>
+                <option value="SeaFood">SeaFood</option>
+                <option value="VegetarianFood">VegetarianFood</option>
+            </select>     
+        </div>
+        <div class="item">
+            <p>Time of the visit</p>
+            <input type="date" id="time" name="birthday">    
+            <p class="errMeg" id ="errTime" ></p>
+        </div>
+        <div class="item">
+            <p>Average meal price per person (/$)</p>
+            <input type="number" placeholder="Price / a persion"  id="price" data-clear-btn="true"/>
+            <p class="errMeg" id ="errPrice" ></p>
+        </div>
+        <div class="item">
+            <p>Service rating</p>
+            <select name="serviceRating" id="serviceR">
+                <option value=1>⭐️</option>
+                <option value=2>⭐️⭐️</option>
+                <option value=3>⭐️⭐️⭐️</option>
+                <option value=4>⭐️⭐️⭐️⭐️</option>
+                <option value=5>⭐️⭐️⭐️⭐️⭐️</option>
+            </select>                      
+        </div>
+        <div class="item">
+            <p>Cleanliness rating </p>
+            <select name="cleanRating" id="cleanR">
+                <option value=1>⭐️</option>
+                <option value=2>⭐️⭐️</option>
+                <option value=3>⭐️⭐️⭐️</option>
+                <option value=4>⭐️⭐️⭐️⭐️</option>
+                <option value=5>⭐️⭐️⭐️⭐️⭐️</option>
+            </select>                           
+        </div>
+        <div class="item">
+            <p>Food rating </p>
+            <select name="foodRating" id="foodR">
+                <option value=1>⭐️</option>
+                <option value=2>⭐️⭐️</option>
+                <option value=3>⭐️⭐️⭐️</option>
+                <option value=4>⭐️⭐️⭐️⭐️</option>
+                <option value=5>⭐️⭐️⭐️⭐️⭐️</option>
+            </select>                           
+        </div>
+        <div class="item">
+            <p>Note </p>
+            <input type="text" placeholder="Note something" id="note" data-clear-btn="true"/>
+        </div>
+        <div class="item">
+            <p>Name of reporter </p>
+            <input type="text" placeholder="Your Name"  id="nameReporter" data-clear-btn="true"/>
+            <p class="errMeg" id ="errRrporter"></p>
+        </div>
+        <div class="item" style="margin-top: 25px;">
+            <button type="button" id="btn" onclick="addReview()">Submit</button>
+        </div>
+        
+        <div data-role="popup" id="popupSuccess" data-transition="pop">
+            <div data-role="header">
+                <a class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-rel="back"></a>
+                <h1>Options</h1>
+            </div>
+            <div data-role="main" class="ui-content">
+                <h1>Submit successfull !!!!</h1>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

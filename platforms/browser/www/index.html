@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+        <head>
+                <meta charset="utf-8" />
+                <meta name="format-detection" content="telephone=no" />
+                <meta name="msapplication-tap-highlight" content="no" />
+                <meta
+                        name="viewport"
+                        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
+                />
+                <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+                <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+                <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+                <link rel="stylesheet" type="text/css" href="css/index.css" />
+                <script type="text/javascript" src="./js/databaseHandler.js"></script>
+                <script type="text/javascript" src="./js/reviewHandler.js"></script>
+                <title>Hello World</title>
+        </head>
+
+        <body>
+                <div data-role="page">
+                    <div data-role="header">
+                        <p
+                        style="
+                        font-size: large;
+                        font-weight:bold;
+                        font-family:'Times New Roman', Times, serif;
+                        text-align: center;
+                        color:rgb(0, 225, 255);
+                        "
+                        >I-Rate</p>
+                    </div>
+                    <div data-role="footer" style="margin-top: 10px;">
+                        <div data-role="navbar">
+                            <ul>
+                                <li><a href="./review.html" data-icon="grid">Review</a></li>
+                                <li><a href="./listreview.html" data-icon="star" class="ui-btn-active">Restaurants</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="https://tr-images.condecdn.net/image/5R4WPqA3X01/crop/405" alt="W3Schools.com" style="width:100%;height:650px;">
+                </div>
+                
+                <script type="text/javascript" src="cordova.js"></script>
+                <script type="text/javascript" src="js/index.js"></script>
+                <script type="text/javascript">
+                        app.initialize();
+                       
+                </script>
+        </body>
+</html>

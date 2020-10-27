@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="./js/databaseHandler.js"></script>
+    <script type="text/javascript" src="./js/reviewHandler.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div data-role="main" class="ui-content1" id="loadpage">
+        <a href="./index.html" data-icon="back" style="font-size: 25px;">Back</a>
+
+        <form class="ui-filterable">
+            <input id="txtKeyword" data-type="search" >
+        </form>
+        <ul 
+        data-role="listview"
+        data-filter="true" 
+        data-input="#txtKeyword" 
+        data-inset="true"
+        id ="listReviews"
+        >
+        </ul>
+        <div data-role="popup" id="popupUpdateDelete" data-transition="pop">
+            <div data-role="header">
+                <a class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-rel="back"></a>
+                <h1>Options</h1>
+            </div>
+            <div data-role="main" class="ui-content">
+                <a class="ui-btn ui-icon-delete ui-btn-icon-left ui-btn-inline"
+                   onclick="deleteReview()"
+
+                >Delete</a>
+                <a class="ui-btn ui-icon-edit ui-btn-icon-left ui-btn-inline"
+                   href="./dialog.html"
+                >Update</a>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+
+    <script>
+        $(document).ready(function(){
+        //   $("#x").text("Restaurant name is required ")
+        
+        loadReviews(displayReviews)
+
+    });
+    </script>
+</body>
+</html>

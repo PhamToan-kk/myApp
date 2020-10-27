@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div  id="updatedialog" data-dialog="true">
+        <div data-role="header">
+            <h1 id="xx">Update Review</h1>
+        </div>
+        <div data-role="main" class="ui-content3">
+            <a href="./listreview.html" data-icon="back" style="font-size: 25px;">Back</a>
+            <form>
+                    <div class="ui-field-contain">
+                            <label for="txtNewNote">Restaurant:</label>
+                            <input type="text" id="txtRName" data-clear-btn="true" />
+                            <label for="txtNewNote">Note:</label>
+                            <input type="text" id="txtNewNote" data-clear-btn="true" />
+                            
+                            <label for="btnUpdate"></label>
+                            <a
+                                    class="ui-btn ui-icon-plus ui-btn-icon-left"
+                                    id="btnUpdate"
+                                    onclick="updateReview()"
+                                    >Update</a
+                            >
+                    </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+       
+        loadDialog()
+
+    });
+    </script>
+</body>
+</html>
