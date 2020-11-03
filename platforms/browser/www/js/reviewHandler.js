@@ -33,7 +33,6 @@ var reviewHandler={
         );
     },
     updateReview: function(_id, newNote,newRname){
-        alert(newNote)
         databaseHandler.db.transaction(
             function(tx){
                 tx.executeSql(

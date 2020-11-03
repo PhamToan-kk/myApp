@@ -15,7 +15,7 @@
             <h1 id="xx">Update Review</h1>
         </div>
         <div data-role="main" class="ui-content3">
-            <a href="./listreview.html" data-icon="back" style="font-size: 25px;">Back</a>
+            <a href="./listreview.html" data-icon="back" style="font-size: 20px;" class="btn btn-outline-primary" role="button">Back</a>
             <form>
                     <div class="ui-field-contain">
                             <label for="txtNewNote">Restaurant:</label>
@@ -32,6 +32,15 @@
                             >
                     </div>
             </form>
+        </div>
+        <div data-role="popup" id="popupUpdateSuccess" data-transition="pop">
+            <div data-role="header">
+                <a class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-rel="back"></a>
+                <h3>Options</h3>
+            </div>
+            <div data-role="main" class="ui-content">
+                <h3>Update successfull !!!!</h3>
+            </div>
         </div>
     </div>
     <script>

@@ -11,11 +11,11 @@
 </head>
 <body>
     <div class="container" data-role="listview" >
-        <a href="./index.html" data-icon="back" style="font-size: 25px;">Back</a>
+        <a href="./index.html" data-icon="back" style="font-size: 20px;" class="btn btn-outline-primary" role="button">Back</a>
         <h3 id="x1"> Restaurant Review</h3>
         <div class="item">
             <p>Restaurant Name</p>
-            <input type="text" placeholder="Restaurant name"  id="rname" data-clear-btn="true"/>
+            <input type="text" placeholder="Restaurant name"  id="rname" data-clear-btn="true" class="form-control" aria-label="Small"/>
             <p class="errMeg" id ="errRname" ></p>
         </div>
         <div class="item">
@@ -83,10 +83,10 @@
         <div data-role="popup" id="popupSuccess" data-transition="pop">
             <div data-role="header">
                 <a class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all" data-rel="back"></a>
-                <h1>Options</h1>
+                <h3>Options</h3>
             </div>
             <div data-role="main" class="ui-content">
-                <h1>Submit successfull !!!!</h1>
+                <h3>Submit successfull !!!!</h3>
             </div>
         </div>
         

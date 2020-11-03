@@ -67,6 +67,7 @@ function addReview(){
         $("#errRrporter").html("nameReporter is required ")
         return false
     }
+    $("#errRrporter").html("")
     
     reviewHandler.addReview(rname,rtype,time,price,serviceR,cleanR,foodR,note,nameReporter,averageR)
     console.log(rname,rtype,time,price,serviceR,cleanR,foodR,note,nameReporter,averageR)
@@ -100,7 +101,7 @@ function displayReviews(results){
     for(var i = 0; i< length; i++){
         const item = results.rows.item(i);
         console.log(item)
-        const a = $("<a />");
+        const a = $(`<a class="childItem"/>`);
         const h32 = $("<h3 />").text("Id: ");
         const h3 = $("<h3 />").text("Restaurant: ");
         const h4 = $("<h4 />").text("Average Rating: ");
@@ -134,7 +135,7 @@ function displayReviews(results){
         a.append(h42)
         a.append(p);
         a.append(p2)
-        const li = $("<li/>");
+        const li = $(`<li class="RItem"/>`);
         
         li.attr("data-filtertext", item.rname);
         li.append(a);
@@ -203,6 +204,8 @@ function updateReview(){
     const newNote = $("#txtNewNote").val();
     const newRname =  $("#txtRName").val();
     reviewHandler.updateReview(currentReviews._id, newNote,newRname);
+    $("#popupUpdateSuccess").popup("open");
+
     // $("#updatedialog").dialog("close");
 }
 

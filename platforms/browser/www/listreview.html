@@ -13,8 +13,8 @@
 </head>
 <body>
     <div data-role="main" class="ui-content1" id="loadpage">
-        <a href="./index.html" data-icon="back" style="font-size: 25px;">Back</a>
-
+        <a href="./index.html" data-icon="back" style="font-size: 20px;" class="btn btn-outline-primary" role="button">Back</a>
+        <h2>List Restaurants</h2>
         <form class="ui-filterable">
             <input id="txtKeyword" data-type="search" >
         </form>
@@ -34,11 +34,13 @@
             <div data-role="main" class="ui-content">
                 <a class="ui-btn ui-icon-delete ui-btn-icon-left ui-btn-inline"
                    onclick="deleteReview()"
-
+                style="width: 210px;"
                 >Delete</a>
                 <a class="ui-btn ui-icon-edit ui-btn-icon-left ui-btn-inline"
                    href="./dialog.html"
-                >Update</a>
+                   style="width: 210px;"
+
+                >View/Update</a>
             </div>
         </div>
         
