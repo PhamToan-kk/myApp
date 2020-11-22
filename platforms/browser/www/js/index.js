@@ -37,7 +37,7 @@ function addReview(){
     const foodR = $("#foodR").val()
     const note = $("#note").val()
     const nameReporter = $("#nameReporter").val()
-    const averageR = Math.ceil((parseInt(serviceR) + parseInt(foodR) + parseInt(cleanR))/3)
+    const averageR = ((parseInt(serviceR) + parseInt(foodR) + parseInt(cleanR))/3).toFixed(1)
     if( rname == ""){
         console.log('ranem',rname)
         $("#errRname").text("Restaurant name is required ")
@@ -86,10 +86,14 @@ function addReview(){
 var currentReviews={
     _id: -1,
     rname: "",
+    foodR:-1,
+    cleanR:-1,
+    serviceR:-1,
     averageR:-1,
-    price:-1,
+    price:"",
     rtype:"",
-    note:""    
+    note:"",
+    nameReporter:""    
     }
 
 function displayReviews(results){
@@ -102,18 +106,26 @@ function displayReviews(results){
         const item = results.rows.item(i);
         console.log(item)
         const a = $(`<a class="childItem"/>`);
-        const h32 = $("<h3 />").text("Id: ");
-        const h3 = $("<h3 />").text("Restaurant: ");
-        const h4 = $("<h4 />").text("Average Rating: ");
-        const h42 = $("<h4 />").text("Restaurant type: ");
-        const p = $("<p />").text("Price/person: ");
-        var p2 = $("<p />").text("Note: ");
+        const id = $("<h3 />").text("Id: ");
+        const h3Rname = $("<h3 />").text("Restaurant: ");
+        const h4ARate = $("<h4 />").text("Average Rating: ");
+        const h4Total = $("<h4 />").text("Rating service-clean-food: ");
+
+        const h4Type = $("<h4 />").text("Restaurant type: ");
+        const pPrice = $("<p />").text("Price/person: ");
+        var pNote = $("<p />").text("Note: ");
+        var pReporter = $("<p />").text("Reporter: ");
+
 
         const spanId = $("<span />").text(item._id);
         spanId.attr("name", "_id");
         const spanName = $("<span />").text(item.rname);
         spanName.attr("name", "rname");
-        const spandAverageR = $("<span/>").text(item.averageR + " ⭐️") ;
+
+        const spandTotalR = $("<span/>").text(item.serviceR + "⭐️" +"- " +item.cleanR + "⭐️" +"- " +item.foodR + "⭐️" ) ;
+        spandTotalR.attr("name", "totalR" );
+       
+        const spandAverageR = $("<span/>").text(item.averageR +"/5" + " ⭐️") ;
         spandAverageR.attr("name", "averageR" );
         const spandType = $("<span/>").text(item.rtype) ;
         spandType.attr("name", "rtype" );
@@ -121,20 +133,27 @@ function displayReviews(results){
         spanPrice.attr("name", "price");
         const spanNote = $("<span />").text(item.note);
         spanNote.attr("name", "note");
+        const spanReporter = $("<span />").text(item.nameReporter);
+        spanReporter.attr("name", "nameReporter");
 
-        h32.append(spanId);
-        h3.append(spanName);
-        h4.append(spandAverageR)
-        h42.append(spandType)
-        p.append(spanPrice);
-        p2.append(spanNote)
+        id.append(spanId);
+        h3Rname.append(spanName);
+        h4Total.append(spandTotalR)
+        h4ARate.append(spandAverageR)
+        h4Type.append(spandType)
+        pPrice.append(spanPrice);
+        pNote.append(spanNote)
+        pReporter.append(spanReporter)
 
-        a.append(h32)
-        a.append(h3);
-        a.append(h4);
-        a.append(h42)
-        a.append(p);
-        a.append(p2)
+        a.append(id)
+        a.append(h3Rname);
+        a.append(h4Total)
+        a.append(h4ARate);
+        a.append(h4Type)
+        a.append(pPrice);
+        a.append(pNote)
+        a.append(pReporter)
+        
         const li = $(`<li class="RItem"/>`);
         
         li.attr("data-filtertext", item.rname);
@@ -149,6 +168,7 @@ function displayReviews(results){
         currentReviews.averageR = $(this).find("[name='averageR']").text();
         currentReviews.price = $(this).find("[name='price']").text();
         currentReviews.note = $(this).find("[name='note']").text();
+        currentReviews.nameReporter = $(this).find("[name='nameReporter']").text();
 
         console.log(currentReviews)
         //Set event for the list item
@@ -195,6 +215,8 @@ function deleteReview(){
 function loadDialog(){
     $("#txtNewNote").val(currentReviews.note);
     $("#txtRName").val(currentReviews.rname);    // alert($("#xx").val())
+    $("#txtNewReporter").val(currentReviews.nameReporter);    // alert($("#xx").val())
+
 
 }
 
@@ -203,7 +225,9 @@ function loadDialog(){
 function updateReview(){
     const newNote = $("#txtNewNote").val();
     const newRname =  $("#txtRName").val();
-    reviewHandler.updateReview(currentReviews._id, newNote,newRname);
+    const NewReporter =  $("#txtNewReporter").val();
+
+    reviewHandler.updateReview(currentReviews._id, newNote,newRname,NewReporter);
     $("#popupUpdateSuccess").popup("open");
 
     // $("#updatedialog").dialog("close");

@@ -32,12 +32,12 @@ var reviewHandler={
             }
         );
     },
-    updateReview: function(_id, newNote,newRname){
+    updateReview: function(_id, newNote,newRname,NewReporter){
         databaseHandler.db.transaction(
             function(tx){
                 tx.executeSql(
-                    "update review set rname=?, note=? where _id = ?",
-                    [newRname,newNote, _id],
+                    "update review set rname=?, note=?,nameReporter=? where _id = ?",
+                    [newRname,newNote,NewReporter, _id],
                     function(tx, result){},
                     function(tx, error){//TODO: alert/display this message to user
                         console.log("Error updating product" + error.message);
